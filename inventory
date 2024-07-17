@@ -1,2 +1,4 @@
-192.168.216.133
-192.168.216.134
+192.168.216.133 apache_package=apache2 php_package=libapache2-mod-php
+192.168.216.134 apache_package=apache2 php_package=libapache2-mod-php
+
+#for example if i have centOS apache_package=httpd & php_package=php
