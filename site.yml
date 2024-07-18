@@ -1,22 +1,16 @@
 ---
 
-- hosts: all
-  become: true
-  tasks:
-
-  - name: install updates (Ubuntu)
-    apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
-
-
 - hosts: web_server
   become: true
   tasks:
 
-  - name: install apache2 package
-    apt:
-      name: apache2
-      state: latest
-    when: ansible_distribution == "Ubuntu"
+  - name: copy file to apache
+    tags: apache,copy
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+
